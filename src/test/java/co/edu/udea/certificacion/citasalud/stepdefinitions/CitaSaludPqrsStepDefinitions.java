@@ -1,6 +1,9 @@
 package co.edu.udea.certificacion.citasalud.stepdefinitions;
 
 import io.cucumber.java.Before;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import io.cucumber.java.es.*;
 import io.cucumber.datatable.DataTable;
 import net.serenitybdd.screenplay.actors.OnStage;
@@ -13,28 +16,48 @@ public class CitaSaludPqrsStepDefinitions {
         OnStage.setTheStage(new OnlineCast());
     }
 
-    @Dado("que el usuario navega a la página de CitaSalud PQRS")
-    public void queElUsuarioNavegaALaPaginaDeCitaSaludPqrs() {
-        // TODO: Implementar navegación
-        // OnStage.theActorCalled("Usuario").wasAbleTo(
-        //     Open.url("https://citasalud-pqrs-flow.vercel.app/")
-        // );
+
+    @Given("the user opens the CitaSalud page")
+    public void theUserOpensTheCitaSaludPage() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+    @When("the user tries to sign in with {string} and {string}")
+    public void theUserTriesToSignInWithAnd(String string, String string2) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+    @Then("the user should see the PQRS main page")
+    public void theUserShouldSeeThePQRSMainPage() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+    @Given("the user navigates to the CitaSalud PQRS page")
+    public void theUserNavigatesToTheCitaSaludPQRSPage() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+    @When("the user fills out the PQRS form with the following information")
+    public void theUserFillsOutThePQRSFormWithTheFollowingInformation(DataTable dataTable) {
+        // Write code here that turns the phrase above into concrete actions
+        // For automatic transformation, change DataTable to one of
+        // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
+        // Map<K, List<V>>. E,K,V must be a String, Integer, Float,
+        // Double, Byte, Short, Long, BigInteger or BigDecimal.
+        //
+        // For other transformations you can register a DataTableType.
+        throw new io.cucumber.java.PendingException();
+    }
+    @When("the user submits the form")
+    public void theUserSubmitsTheForm() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+    @Then("the user should see a successful confirmation message")
+    public void theUserShouldSeeASuccessfulConfirmationMessage() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
     }
 
-    @Cuando("el usuario completa el formulario de PQRS con los siguientes datos")
-    public void elUsuarioCompletaElFormularioDePqrsConLosSiguientesDatos(DataTable dataTable) {
-        // TODO: Implementar llenado de formulario
-        // var data = dataTable.asMap(String.class, String.class);
-    }
-
-    @Cuando("el usuario envía el formulario")
-    public void elUsuarioEnviaElFormulario() {
-        // TODO: Implementar envío del formulario
-    }
-
-    @Entonces("el usuario debería ver un mensaje de confirmación exitoso")
-    public void elUsuarioDeberiaVerUnMensajeDeConfirmacionExitoso() {
-        // TODO: Implementar verificación del mensaje
-    }
 }
 
