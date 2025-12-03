@@ -16,14 +16,12 @@ Feature: PQRS Management in CitaSalud
     Given the user navigates to the CitaSalud PQRS page
     When the user fills out the PQRS form with the following information
       | field       | value          |
-      | name        | <name>         |
-      | email       | <email>        |
-      | phone       | <phone>        |
       | type        | <type>         |
       | description | <description>  |
     And the user submits the form
     Then the user should see a successful confirmation message
 
     Examples:
-      | name        | email                  | phone       | type      | description                |
-      | Juan Perez  | juan.perez@example.com | 3001234567  | Request   | Information request        |
+      | type      | description                                    |
+      | Petición  | Solicitud de información sobre servicios      |
+      | Queja     | Insatisfacción con el servicio recibido       |

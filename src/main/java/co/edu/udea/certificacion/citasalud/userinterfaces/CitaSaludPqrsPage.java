@@ -5,19 +5,22 @@ import org.openqa.selenium.By;
 
 public class CitaSaludPqrsPage {
 
-    // TODO: Identificar y agregar los localizadores de la página
-    // Ejemplo:
-    // public static final Target INPUT_NOMBRE = Target.the("Campo de nombre")
-    //         .located(By.id("nombre"));
+    // Botón para acceder al formulario PQRS desde el dashboard
+    public static final Target RADICAR_PQRS_BUTTON = Target.the("Botón Radicar PQRS")
+            .located(By.xpath("//button[contains(text(),'Radicar PQRS')]"));
 
-    // public static final Target INPUT_EMAIL = Target.the("Campo de email")
-    //         .located(By.id("email"));
+    // Campos del formulario PQRS
+    public static final Target SELECT_TYPE = Target.the("Selector tipo PQRS")
+            .located(By.id("tipoId"));
 
-    // public static final Target BUTTON_ENVIAR = Target.the("Botón enviar")
-    //         .located(By.xpath("//button[@type='submit']"));
+    public static final Target TEXTAREA_DESCRIPTION = Target.the("Campo descripción")
+            .located(By.id("descripcion"));
 
-    // public static final Target MENSAJE_CONFIRMACION = Target.the("Mensaje de confirmación")
-    //         .located(By.cssSelector(".success-message"));
+    public static final Target SUBMIT_BUTTON = Target.the("Botón enviar formulario")
+            .located(By.xpath("//button[@type='submit' and contains(text(),'Radicar PQRS')]"));
+
+    public static final Target SUCCESS_MESSAGE = Target.the("Mensaje de confirmación")
+            .located(By.xpath("//div[contains(text(),'PQRS radicada correctamente')]"));
 
     private CitaSaludPqrsPage() {
         // Constructor privado para evitar instanciación
