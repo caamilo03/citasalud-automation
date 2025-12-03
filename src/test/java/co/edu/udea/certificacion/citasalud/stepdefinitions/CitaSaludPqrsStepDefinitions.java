@@ -1,6 +1,6 @@
 package co.edu.udea.certificacion.citasalud.stepdefinitions;
 
-import co.edu.udea.certificacion.citasalud.questions.ElMensaje;
+import co.edu.udea.certificacion.citasalud.questions.TheMessage;
 import co.edu.udea.certificacion.citasalud.tasks.FillPqrsForm;
 import co.edu.udea.certificacion.citasalud.tasks.Login;
 import co.edu.udea.certificacion.citasalud.tasks.NavigateTo;
@@ -18,10 +18,12 @@ import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
+import net.serenitybdd.screenplay.waits.Wait;
 import net.thucydides.model.util.EnvironmentVariables;
 import org.openqa.selenium.WebDriver;
-
+import java.time.Duration;
 import java.util.Map;
+import net.serenitybdd.screenplay.questions.page.TheWebPage;
 
 import static co.edu.udea.certificacion.citasalud.userinterfaces.LoginPage.LOGGIN_BUTTON;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
@@ -56,8 +58,10 @@ public class CitaSaludPqrsStepDefinitions {
 
     @Then("the user should see the PQRS main page")
     public void theUserShouldSeeThePQRSMainPage() {
-        WaitTime.putWaitTimeOf(2000);
-        theActorCalled("Customer").should(seeThat("PQRS dashboard",actor -> driver.getCurrentUrl().contains("/dashboard")));
+        theActorCalled("Customer").attemptsTo(
+                Wait.until(TheWebPage.currentUrl(), containsString("/dashboard"))
+                        .forNoMoreThan(Duration.ofSeconds(15))
+        );
     }
 
     @Given("the user navigates to the CitaSalud PQRS page")
@@ -70,10 +74,7 @@ public class CitaSaludPqrsStepDefinitions {
     public void theUserFillsOutThePQRSFormWithTheFollowingInformation(DataTable dataTable) {
         Map<String, String> data = dataTable.asMap(String.class, String.class);
 
-        String tipo = data.get("type");
-        String descripcion = data.get("description");
-
-        theActorCalled("Customer").attemptsTo(FillPqrsForm.withData(tipo, descripcion));
+        theActorCalled("Customer").attemptsTo(FillPqrsForm.withData(data));
         WaitTime.putWaitTimeOf(2000);
     }
 
@@ -86,7 +87,7 @@ public class CitaSaludPqrsStepDefinitions {
     @Then("the user should see a successful confirmation message")
     public void theUserShouldSeeASuccessfulConfirmationMessage() {
         theActorCalled("Customer").should(
-                seeThat(ElMensaje.de(CitaSaludPqrsPage.SUCCESS_MESSAGE),
+                seeThat(TheMessage.of(CitaSaludPqrsPage.SUCCESS_MESSAGE),
                         containsString("radicada correctamente")
                 ).orComplainWith(AssertionError.class, "No se mostró el mensaje de confirmación")
         );

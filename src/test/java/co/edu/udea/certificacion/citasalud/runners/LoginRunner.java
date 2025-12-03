@@ -6,13 +6,13 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        features = "src/test/resources/features/citasalud_pqrs.feature",
+        features = "src/test/resources/features/Login.feature",
         glue = "co.edu.udea.certificacion.citasalud.stepdefinitions",
         snippets = CucumberOptions.SnippetType.CAMELCASE,
         tags = "@smoke",
-        plugin = {"pretty", "html:target/cucumber-reports/citasalud.html"}
+        plugin = {"pretty", "html:target/cucumber-reports/login.html"}
 
 )
-public class CitaSaludPqrsRunner {
+public class LoginRunner {
 }
 

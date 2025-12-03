@@ -1,7 +1,7 @@
-# Authors: Your Name
+# Authors: Camilo y Luis
 # language: en
 
-Feature: PQRS Management in CitaSalud
+Feature: PQRS creation in CitaSalud
   As a CitaSalud user
   I want to submit a PQRS (Request, Complaint, Claim, or Suggestion)
   So that I can manage my inquiries effectively.
@@ -23,5 +23,5 @@ Feature: PQRS Management in CitaSalud
 
     Examples:
       | type      | description                                    |
-      | Petición  | Solicitud de información sobre servicios      |
-      | Queja     | Insatisfacción con el servicio recibido       |
+      | Queja     | Insatisfacción con el servicio recibido        |
+      | Reclamo   | Solicitud de información sobre servicios       |

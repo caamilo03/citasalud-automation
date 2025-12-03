@@ -11,16 +11,16 @@ public class CitaSaludPqrsPage {
 
     // Campos del formulario PQRS
     public static final Target SELECT_TYPE = Target.the("Selector tipo PQRS")
-            .located(By.id("tipoId"));
+            .located(By.xpath("//*[@id=\"root\"]/div[2]/div/main/div/div/div[3]/div[2]/form/div[1]/select"));
 
-    public static final Target TEXTAREA_DESCRIPTION = Target.the("Campo descripción")
-            .located(By.id("descripcion"));
+    public static final Target TEXT_AREA_DESCRIPTION = Target.the("Campo descripción")
+            .located(By.xpath("//*[@id=\"descripcion\"]"));
 
     public static final Target SUBMIT_BUTTON = Target.the("Botón enviar formulario")
-            .located(By.xpath("//button[@type='submit' and contains(text(),'Radicar PQRS')]"));
+            .located(By.xpath("//*[@id=\"root\"]/div[2]/div/main/div/div/div[3]/div[2]/form/div[3]/button[1]"));
 
     public static final Target SUCCESS_MESSAGE = Target.the("Mensaje de confirmación")
-            .located(By.xpath("//div[contains(text(),'PQRS radicada correctamente')]"));
+            .located(By.xpath("//*[@id=\"root\"]/div[1]/ol/li/div/div[1]"));
 
     private CitaSaludPqrsPage() {
         // Constructor privado para evitar instanciación
